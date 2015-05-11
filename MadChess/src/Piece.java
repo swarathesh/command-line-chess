@@ -15,4 +15,9 @@ public class Piece {
 	public int getLevel(){
 		return this.level;
 	}
+	
+	public void move(){
+		
+		
+	}
 }
