@@ -6,7 +6,7 @@ public class Board {
 	private Square squares[][];
 	private PieceSet[] set;
 	
-	
+	private int a;
 	public void create(){
 		
 	}

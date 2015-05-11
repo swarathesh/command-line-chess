@@ -5,7 +5,4 @@ public class Test {
 		System.out.println("Hey");
 		System.out.println("asd");
 	}
-	
-	
-
 }
