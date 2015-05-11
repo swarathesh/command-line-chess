@@ -1,4 +1,4 @@
 
-public class destroyRandomPiece {
+public class destroyRandomPiece extends Chest {
 
 }

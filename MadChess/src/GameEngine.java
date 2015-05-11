@@ -3,6 +3,15 @@ public class GameEngine {
 	private Player player1;
 	private Player player2;
 	private PieceColor turn;
+	private Square[][] squares;
+	Board b;
+	
+	
+	public GameEngine(){
+		
+		b= new Board();
+		squares = b.getSquares();
+	}
 	
 	public boolean isPieceMoved(){
 		return true;
@@ -16,9 +25,10 @@ public class GameEngine {
 		return true;
 	}
 	
-	public void updateStatus(){
+	public void updateBoard(){
 		
-	//	if(isPieceMoved())
+		//if(isPieceMoved())
+			
 			
 		
 	}

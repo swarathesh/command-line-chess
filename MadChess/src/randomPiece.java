@@ -1,4 +1,4 @@
 
-public class randomPiece {
+public class randomPiece extends Chest {
 
 }

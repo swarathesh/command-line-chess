@@ -1,7 +1,20 @@
+import java.util.Scanner;
 public class Test {
+	
+	
 
 	public static void main(String[] args) {
-		System.out.println("Hey");
-		System.out.println("Heyy");
+		
+		
+		Scanner scan = new Scanner(System.in);
+		
+		int row;
+		int column;
+		Board b = new Board();
+		b.printInitialBoard();
+		
+		
+		
+		
 	}
 }
