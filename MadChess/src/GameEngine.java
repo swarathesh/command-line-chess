@@ -6,12 +6,12 @@ public class GameEngine {
 	private Player player2;
 	private PieceColor turn;
 	private Square[][] squares;
-	Board b;
+	Board board;
 	
 	
 	public GameEngine(){
-		b = new Board();
-		squares = b.getSquares();
+		board = new Board();
+		squares = board.getSquares();
 	}
 	
 	public boolean isPieceMoved(){
@@ -30,38 +30,63 @@ public class GameEngine {
 		//if(isPieceMoved())
 	}
 
-	/*public boolean attemptMove(){
-		System.out.println("Turn of Player " + turn + ": ");
+	public void playerTurn(){
+		System.out.println("Turn of " + turn + " Player.");
 		
+		boolean isMoveSuccessful = false;
+		while (isMoveSuccessful == false) {
+			isMoveSuccessful = attemptMove();
+		}
+
+		if (turn == PieceColor.WHITE) {
+			turn = PieceColor.BLACK;
+		} else {
+			turn = PieceColor.WHITE;
+		}
+	}
+
+	public boolean attemptMove(){
 		Scanner scan = new Scanner(System.in);
 
-		try{
-			String coordinatesString = scan.nextLine();
-			String[] coordinates = coordinatesString.split(" ");
-			int x = Integer.parseInt(coordinates[0]);
-			int y = Integer.parseInt(coordinates[1]);	
-		} catch(Exception e) {
-			e.printStackTrace();
-			System.out.println("Malformed input");
-			return false;
-		}
+		Piece choosenPiece;
+		int fromX = -1;
+		int fromY = -1;
+		int toX = -1;
+		int toY = -1;
 
-		Square source = null;
-		while(s == null || s.getPiece() == null) {
-			System.out.println("Enter the coordinates of the piece you want to move: ");
-			s = Square.readSquare();
-		}
-		source.squareInfo();
-		
-		Square destination = null;
-		while(s == null) {
-			System.out.println("Enter the coordinates you want to move it: ");
-			destination = Square.readSquare();
-		}
-		s.squareInfo();
+		do {
+			System.out.print("Enter the coordinates of the piece you want to move: ");
 
-		if ()
+			try{
+				String coordinatesString = scan.nextLine();
+				String[] coordinates = coordinatesString.split(" ");
+				fromX = Integer.parseInt(coordinates[0]);
+				fromY = Integer.parseInt(coordinates[1]);	
+			} catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("Malformed input");
+			}
+		} while(fromX < 0 || 15 < fromX || fromY < 0 || 11 < fromY ||
+				board.getSquare(fromX, fromY).getPiece() == null);
+
+		choosenPiece = board.getSquare(fromX, fromY).getPiece();
+		System.out.println(choosenPiece.getName() + " has been selected.");
+
+
+		do {
+			System.out.print("Enter the coordinates where you want to move: ");
+			
+			try{
+				String coordinatesString = scan.nextLine();
+				String[] coordinates = coordinatesString.split(" ");
+				toX = Integer.parseInt(coordinates[0]);
+				toY = Integer.parseInt(coordinates[1]);	
+			} catch(Exception e) {
+				e.printStackTrace();
+				System.out.println("Malformed input");
+			}
+		} while(toX < 0 || 15 < toX || toY < 0 || 11 < toY);
 		
-		return true;
-	}*/
+		return choosenPiece.move(board, fromX, fromY, toX, toY);
+	}
 }
