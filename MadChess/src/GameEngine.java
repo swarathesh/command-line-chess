@@ -61,17 +61,31 @@ public class GameEngine {
 
 	public void createChests(int i) {
 		if(random.nextInt(i) == 0) {
-			// Create a chest
-			// Choose a random chest
-			int randomChestId = random.nextInt(i);
-			// ...
-			Chest randomChest;
-			// ...
+			int randomChestId = random.nextInt(5);
+			
+			Chest randomChest = new LevelUpChest();
+			switch(randomChestId) {
+				case 0:
+					randomChest = new DestroyRandomPieceChest();
+					break;
+				case 1:
+					randomChest = new LevelUpChest();
+					break;
+				case 2:
+					randomChest = new LevelDownChest();
+					break;
+				case 3:
+					randomChest = new RandomBlockChest();
+					break;
+				case 4:
+					randomChest = new CreateRandomPieceChest();
+					break;
+			}
 
 			Square randomSquare;
 			do {
 				randomSquare = board.getRandomSquare();
-			} while(randomSquare.getPiece() != null || randomSquare.getSquare() != null);
+			} while(randomSquare.getPiece() != null || randomSquare.getChest() != null);
 			randomSquare.setChest(randomChest);
 		}
 	}
@@ -80,7 +94,9 @@ public class GameEngine {
 		for (int i = 0; i<12; i++){
 			for (int k = 0; k<16; k++){
 				if(squares[i][k].getChest() != null) {
-					squares[i][k].getChest().decay();
+					if(squares[i][k].getChest().decay()) {
+						squares[i][k].removeChest();
+					}
 				}
 			}
 		}

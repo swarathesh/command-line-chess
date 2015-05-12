@@ -14,10 +14,10 @@ public class Test {
 		b.printBoard();
 		b.getSquare(1, 4).getPiece().move(b, 1, 4, 30, 40);
 
-		//	System.out.println("\u2709\uFE0E");
-	//	GameEngine gameEngine = new GameEngine();
+		System.out.println("\u2709\uFE0E");
+		GameEngine gameEngine = new GameEngine();
 
-	//	gameEngine.attemptMove();
+		gameEngine.attemptMove();
 	
 		
 		

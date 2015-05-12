@@ -1,5 +1,5 @@
 
-public class levelUp {
+public class LevelUpChest extends Chest {
 	
 	
 	

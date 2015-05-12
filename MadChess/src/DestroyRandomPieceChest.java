@@ -1,5 +1,5 @@
 import java.util.Random;
-public class destroyRandomPiece extends Chest {
+public class DestroyRandomPieceChest extends Chest {
 	
 	
 	public void destroy(Board b){

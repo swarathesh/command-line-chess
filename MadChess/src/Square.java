@@ -82,4 +82,15 @@ public class Square {
 		return c;
 	}
 
+	public void setChest(Chest chest) {
+		c = chest;
+	}
+
+	public void removeChest() {
+		c = null;
+	}
+
+	public void removePiece() {
+		p = null;
+	}
 }
