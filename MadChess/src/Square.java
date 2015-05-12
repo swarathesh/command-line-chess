@@ -26,7 +26,7 @@ public class Square {
 	}
 	
 	public void printSquare(){
-		if(this.p==null && this.c == ngetull){
+		if(this.p==null && this.c == null){
 			System.out.print("X  ");
 		}
 		else if(p != null && c == null){

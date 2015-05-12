@@ -30,9 +30,22 @@ public class GameEngine {
 		//if(isPieceMoved())
 	}
 
-	public boolean attemptMove(){
-		System.out.println("Turn of Player " + turn + ": ");
+	public void playerTurn(){
+		System.out.println("Turn of " + turn + " Player.");
 		
+		boolean isMoveSuccessful = false;
+		while (isMoveSuccessful == false) {
+			isMoveSuccessful = attemptMove();
+		}
+
+		if (turn == PieceColor.WHITE) {
+			turn = PieceColor.BLACK;
+		} else {
+			turn = PieceColor.WHITE;
+		}
+	}
+
+	public boolean attemptMove(){
 		Scanner scan = new Scanner(System.in);
 
 		Piece choosenPiece;
