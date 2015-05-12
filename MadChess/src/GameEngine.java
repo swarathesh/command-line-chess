@@ -1,17 +1,19 @@
 import java.util.*;
 	
 public class GameEngine {
-
 	private Player player1;
 	private Player player2;
 	private PieceColor turn;
 	private Square[][] squares;
-	Board board;
-	
-	
+	private Board board;
+	private Random random;
+	private Scanner scan;
+
 	public GameEngine(){
 		board = new Board();
 		squares = board.getSquares();
+		random = new Random();
+		scan = new Scanner(System.in);
 	}
 
 	public boolean isEnded(){
@@ -52,10 +54,39 @@ public class GameEngine {
 		}
 
 		board.printBoard();
+
+		collectChests();
+		createChests(10);
+	}
+
+	public void createChests(int i) {
+		if(random.nextInt(i) == 0) {
+			// Create a chest
+			// Choose a random chest
+			int randomChestId = random.nextInt(i);
+			// ...
+			Chest randomChest;
+			// ...
+
+			Square randomSquare;
+			do {
+				randomSquare = board.getRandomSquare();
+			} while(randomSquare.getPiece() != null || randomSquare.getSquare() != null);
+			randomSquare.setChest(randomChest);
+		}
+	}
+
+	public void collectChests() {
+		for (int i = 0; i<12; i++){
+			for (int k = 0; k<16; k++){
+				if(squares[i][k].getChest() != null) {
+					squares[i][k].getChest().decay();
+				}
+			}
+		}
 	}
 
 	public boolean attemptMove(){
-		Scanner scan = new Scanner(System.in);
 
 		Piece choosenPiece;
 		int fromX = -1;
