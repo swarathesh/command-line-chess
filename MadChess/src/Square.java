@@ -1,3 +1,4 @@
+import java.util.Scanner;
 
 public class Square {
 	
@@ -10,17 +11,17 @@ public class Square {
 	public Square(int row, int column){
 		this.row = row;
 		this.column = column;		
+		p = null;
+		c = null;
 	}
 	
 	public Square(int row, int column, Piece p){
-		this.row = row;
-		this.column = column;
+		this = Square(row, column);	
 		this.p = p;
 	}
 	
 	public Square(int row, int column,Chest c){
-		this.row = row;
-		this.column = column;
+		this = Square(row, column);
 		this.c = c;
 	}
 	
@@ -37,6 +38,20 @@ public class Square {
 		}
 	}
 	
+	public void squareInfo(){
+		System.out.println("coordinates:");
+		System.out.println("row:" + row  + " column:" + column);
+		if(this.p==null && this.c == null){
+		}
+		else if(p != null && c == null){
+			System.out.print(p.getName());
+		}
+		
+		else if(p == null && c != null){
+			System.out.print(c.getName());
+		}
+	}
+
 	public Piece getPiece(){
 		return this.p;
 	}
@@ -61,7 +76,12 @@ public class Square {
 		this.row = row;
 	}
 	
+	public Piece getPiece() {
+		return p;
+	}
 	
-
+	public Chest getChest() {
+		return c;
+	}
 
 }

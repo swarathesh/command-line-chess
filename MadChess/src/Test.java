@@ -17,6 +17,11 @@ public class Test {
 		b.printBoard();
 		System.out.println();
 		b.getSquare(0, 4).getPiece().move(b, 0, 4, 1, 4);
+		b.printInitialBoard();
+
+		GameEngine gameEngine = new GameEngine();
+
+		gameEngine.attemptMove();
 		
 		b.printBoard();
 		System.out.println();
