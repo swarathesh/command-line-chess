@@ -4,8 +4,8 @@ public class Square {
 	
 	private int row;
 	private int column;
-	Piece p = null;
-	Chest c = null;
+	private Piece p = null;
+	private Chest c = null;
 	
 	public Square(int row, int column){
 		this.row = row;
@@ -37,6 +37,13 @@ public class Square {
 		}
 	}
 	
+	public Piece getPiece(){
+		return this.p;
+	}
+	
+	public void setPiece(Piece p){
+		this.p = p;
+	}
 	
 	public int getRow(){
 		return this.row;

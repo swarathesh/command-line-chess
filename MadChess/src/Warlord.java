@@ -19,6 +19,48 @@ public class Warlord extends Piece  {
 		}
 	}
 	
+	private boolean isStraightMove(int fromX, int fromY, int toX, int toY){
+		
+		if((fromX-toX == 0 && Math.abs(fromY-toY) == 1) ||(fromY-toY == 0 && Math.abs(fromX-toX) == 1) )
+			return true;
+		
+		return false;
+				
+	}
+	
+	private boolean isDiagonalMove(int fromX, int fromY, int toX, int toY){
+		if(Math.abs(fromX-toX)==2 && Math.abs(fromY-toY)==2)
+			return true;
+		return false;
+				
+		
+	}
+	
+	public boolean move(Board b, int fromX, int fromY, int toX, int toY){
+		
+		if(!super.isOutofBoard(b,fromX, fromY, toX, toY))
+			return false;
+		
+		if(!isStraightMove(fromX, fromY, toX, toY)&&!isDiagonalMove(fromX, fromY, toX, toY))
+			return false;
+		if(isStraightMove(fromX, fromY, toX, toY)){			
+			b.getSquare(toX, toY).setPiece(this);
+			b.getSquare(fromX,fromY).setPiece(null);
+			return true;
+		}	
+		else{
+			
+			if(b.getSquare(fromX+((toX- fromX)/2), fromY+((toY- fromY)/2)).getPiece().pColor == this.pColor){
+				return false;
+			}
+			else{
+				b.getSquare(toX, toY).setPiece(this);
+				b.getSquare(fromX,fromY).setPiece(null);
+				return true;
+			}
+		}	
+	}
+	
 	public String getName(){
 		return this.str;
 	}
