@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.Random;
 public class Board {
 
 	final int rowNumber = 12;
@@ -99,6 +100,14 @@ public class Board {
 	public Square[][] getSquares(){
 		return this.squares;
 	}
+	
+	public Square getRandomSquare(){
+		Random rn = new Random();
+		int r1 = rn.nextInt(12);
+		int r2 =rn.nextInt(16);
+		return  squares[r1][r2];
+	}
+	
 	public Square getSquare(int locX, int locY){
 		return squares[locX][locY];
 	}

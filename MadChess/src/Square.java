@@ -16,12 +16,14 @@ public class Square {
 	}
 	
 	public Square(int row, int column, Piece p){
-		
+		this.row = row;
+		this.column = column;	
 		this.p = p;
 	}
 	
 	public Square(int row, int column,Chest c){
-		
+		this.row = row;
+		this.column = column;	
 		this.c = c;
 	}
 	
@@ -34,7 +36,7 @@ public class Square {
 		}
 		
 		else if(p == null && c != null){
-			
+			System.out.println("\u2709\uFE0E ");
 		}
 	}
 	

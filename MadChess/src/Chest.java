@@ -1,9 +1,14 @@
 
 public class Chest {
 
-	private int randomNumber;
+	private String name;
+	
+	
+	public Chest(){
+		
+	}
 	
 	public String getName() {
-		return "ch";
+		return name;
 	}	
 }
