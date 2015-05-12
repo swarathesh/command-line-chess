@@ -1,27 +1,37 @@
+import java.util.Scanner;
 
 public class Square {
 	
 	
 	private int row;
 	private int column;
-	Piece p = null;
-	Chest c = null;
+	private Piece p;
+	private Chest c;
 	
 	public Square(int row, int column){
+		if (row < 0 || 11 < row || column < 0 || 15 < column)
+			this = null;
+
 		this.row = row;
 		this.column = column;		
+		p = null;
+		c = null;
 	}
 	
 	public Square(int row, int column, Piece p){
-		this.row = row;
-		this.column = column;
-		this.p = p;
+		this = Square(row, column);
+		if (this != null)
+			this.p = p;
 	}
 	
 	public Square(int row, int column,Chest c){
-		this.row = row;
-		this.column = column;
-		this.c = c;
+		this = Square(row, column);
+		if (this != null)
+			this.c = c;
+	}
+
+	public static Square readSquare(){
+
 	}
 	
 	public void printSquare(){
@@ -37,6 +47,19 @@ public class Square {
 		}
 	}
 	
+	public void squareInfo(){
+		System.out.println("coordinates:");
+		System.out.println("row:" + row  + " column:" + column);
+		if(this.p==null && this.c == null){
+		}
+		else if(p != null && c == null){
+			System.out.print(p.getName());
+		}
+		
+		else if(p == null && c != null){
+			System.out.print(c.getName());
+		}
+	}
 	
 	public int getRow(){
 		return this.row;
@@ -54,7 +77,12 @@ public class Square {
 		this.row = row;
 	}
 	
+	public Piece getPiece() {
+		return p;
+	}
 	
-
+	public Chest getChest() {
+		return c;
+	}
 
 }

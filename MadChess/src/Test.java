@@ -12,6 +12,10 @@ public class Test {
 		int column;
 		Board b = new Board();
 		b.printInitialBoard();
+
+		GameEngine gameEngine = new GameEngine();
+
+		gameEngine.attemptMove();
 		
 		
 		
