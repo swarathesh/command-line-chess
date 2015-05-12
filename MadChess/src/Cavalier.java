@@ -5,11 +5,10 @@ public class Cavalier extends Piece {
 	private final int level = 3;
 	private String str;
 	int value;
-	PieceColor c;
 	
 	public Cavalier(PieceColor c){
 		super();
-		this.c = c;
+		this.pColor = c;
 		switch (c){
 		case WHITE:
 			str = "WC";

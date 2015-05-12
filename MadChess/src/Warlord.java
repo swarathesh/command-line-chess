@@ -4,11 +4,10 @@ public class Warlord extends Piece  {
 	private final int level = 6;
 	private String str;
 	int value;
-	PieceColor c;
 	
 	public Warlord(PieceColor c){
 		super();
-		this.c = c;
+		this.pColor = c;
 		switch (c){
 		case WHITE:
 			str = "WW";
@@ -50,7 +49,7 @@ public class Warlord extends Piece  {
 		}	
 		else{
 			
-			if(b.getSquare(fromX+((toX- fromX)/2), fromY+((toY- fromY)/2)).getPiece().pColor == this.pColor){
+			if(b.getSquare(fromX+((toX- fromX)/2), fromY+((toY- fromY)/2)).getPiece()!= null &&b.getSquare(fromX+((toX- fromX)/2), fromY+((toY- fromY)/2)).getPiece().pColor == this.pColor){
 				return false;
 			}
 			else{

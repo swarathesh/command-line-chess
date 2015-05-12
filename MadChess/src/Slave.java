@@ -4,12 +4,11 @@ public class Slave extends Piece  {
 	private final int level = 1;
 	private String str;
 	int value;
-	PieceColor c;
 	
 	public Slave(PieceColor c){
 		super();
-		this.c = c;
-		switch (c){
+		this.pColor = c;
+		switch (this.pColor){
 		case WHITE:
 			str = "WS";
 			break;
@@ -21,13 +20,13 @@ public class Slave extends Piece  {
 	
 	private boolean isStraightMove(int fromX, int fromY, int toX, int toY){
 		
-		if(this.pColor == PieceColor.WHITE && toX-fromX == 2 || this.pColor == PieceColor.BLACK && toX-fromX == -2)
+		if(this.pColor == PieceColor.BLACK && toX-fromX == 2 || this.pColor == PieceColor.WHITE && toX-fromX == -2)
 			return true;
 		return false;	
 	}
 	
 	private boolean isDiagonalMove(int fromX, int fromY, int toX, int toY){
-		if((this.pColor== PieceColor.WHITE && toX-fromX==1 && Math.abs(fromY-toY)==1) ||(this.pColor== PieceColor.BLACK && fromX-toX ==1 && Math.abs(fromY-toY)==1) )
+		if((this.pColor== PieceColor.BLACK && toX-fromX==1 && Math.abs(fromY-toY)==1) ||(this.pColor== PieceColor.WHITE && fromX-toX ==1 && Math.abs(fromY-toY)==1) )
 			return true;
 		return false;
 	}
@@ -60,19 +59,6 @@ public class Slave extends Piece  {
 			return true;	
 		}	
 	}
-	
-	public void getPossibleMoves(int row, int column){
-		
-		switch(this.c){
-		case WHITE:
-			row = row -1;
-			break;
-		case BLACK:
-			row = row +1;
-			break;
-		}
-	}
-	
 	public String getName(){
 		return this.str;
 	}

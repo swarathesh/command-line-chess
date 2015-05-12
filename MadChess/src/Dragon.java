@@ -4,11 +4,10 @@ public class Dragon extends Piece  {
 	private final int level = 5;
 	private String str;
 	int value;
-	PieceColor c;
 	
 	public Dragon(PieceColor c){
 		super();
-		this.c =c;
+		this.pColor =c;
 		switch (c){
 		case WHITE:
 			str = "WD";

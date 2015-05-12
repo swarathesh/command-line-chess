@@ -4,11 +4,10 @@ public class Guard extends Piece  {
 	private final int level = 2;
 	private String str;
 	int value;
-	PieceColor c;
 	
 	public Guard(PieceColor c){
 		super();
-		this.c = c;
+		this.pColor = c;
 		switch (c){
 		case WHITE:
 			str = "WG";

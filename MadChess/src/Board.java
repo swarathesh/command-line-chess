@@ -80,7 +80,7 @@ public class Board {
 		}
 	}
 	
-	public void printInitialBoard(){
+	public void printBoard(){
 		for(int i = 0; i<12; i++){
 			for(int k = 0; k<16; k++){
 				squares[i][k].printSquare();
