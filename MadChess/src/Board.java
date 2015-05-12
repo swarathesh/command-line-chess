@@ -100,7 +100,9 @@ public class Board {
 	public Square[][] getSquares(){
 		return this.squares;
 	}
-	
+	public Square getSquare(int locX, int locY){
+		return squares[locX][locY];
+	}
 	
 	
 }

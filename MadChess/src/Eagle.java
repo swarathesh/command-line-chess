@@ -20,6 +20,10 @@ public class Eagle extends Piece  {
 		}
 	}
 	
+	public boolean move(Board b, int fromX, int fromY, int toX, int toY){
+		return true;
+	}
+	
 	public String getName(){
 		return this.str;
 	}

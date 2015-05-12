@@ -5,13 +5,10 @@ public class Square {
 	
 	private int row;
 	private int column;
-	private Piece p;
-	private Chest c;
+	private Piece p = null;
+	private Chest c = null;
 	
 	public Square(int row, int column){
-		if (row < 0 || 11 < row || column < 0 || 15 < column)
-			this = null;
-
 		this.row = row;
 		this.column = column;		
 		p = null;
@@ -19,19 +16,13 @@ public class Square {
 	}
 	
 	public Square(int row, int column, Piece p){
-		this = Square(row, column);
-		if (this != null)
-			this.p = p;
+		this = Square(row, column);	
+		this.p = p;
 	}
 	
 	public Square(int row, int column,Chest c){
 		this = Square(row, column);
-		if (this != null)
-			this.c = c;
-	}
-
-	public static Square readSquare(){
-
+		this.c = c;
 	}
 	
 	public void printSquare(){
@@ -59,6 +50,14 @@ public class Square {
 		else if(p == null && c != null){
 			System.out.print(c.getName());
 		}
+	}
+
+	public Piece getPiece(){
+		return this.p;
+	}
+	
+	public void setPiece(Piece p){
+		this.p = p;
 	}
 	
 	public int getRow(){
