@@ -35,7 +35,5 @@ public abstract class  Piece {
 	}
 	
 	public abstract boolean move(Board b, int fromX, int fromY, int toX, int toY);
-		
-		
 	
 }
