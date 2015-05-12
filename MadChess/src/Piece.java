@@ -19,7 +19,7 @@ public abstract class  Piece {
 		return this.name;
 	}
 
-	public String getColor(){
+	public PieceColor getColor(){
 		return pColor;
 	}
 	
