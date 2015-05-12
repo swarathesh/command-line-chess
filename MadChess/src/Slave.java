@@ -42,7 +42,7 @@ public class Slave extends Piece  {
 			
 			if(b.getSquare(toX, toY).getPiece()!= null)
 				return false;
-			else if (b.getSquare(fromX+((toX-fromX)/2), fromY+((toY-fromY)/2)).getPiece()!= null &&b.getSquare(fromX+((toX-fromX)/2), fromY+((toY-fromY)/2)).getPiece().pColor == this.pColor ){
+			else if (b.getSquare(fromX+((toX-fromX)/2), fromY+((toY-fromY)/2)).getPiece()!= null ){
 				return false;
 			} 
 			else{

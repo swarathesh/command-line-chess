@@ -16,12 +16,12 @@ public class Square {
 	}
 	
 	public Square(int row, int column, Piece p){
-		this = Square(row, column);	
+		
 		this.p = p;
 	}
 	
 	public Square(int row, int column,Chest c){
-		this = Square(row, column);
+		
 		this.c = c;
 	}
 	
@@ -52,10 +52,6 @@ public class Square {
 		}
 	}
 
-	public Piece getPiece(){
-		return this.p;
-	}
-	
 	public void setPiece(Piece p){
 		this.p = p;
 	}

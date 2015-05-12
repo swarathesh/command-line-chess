@@ -10,8 +10,8 @@ public class GameEngine {
 	
 	
 	public GameEngine(){
-		board = new Board();
-		squares = board.getSquares();
+		b = new Board();
+		squares = b.getSquares();
 	}
 	
 	public boolean isPieceMoved(){
@@ -30,7 +30,7 @@ public class GameEngine {
 		//if(isPieceMoved())
 	}
 
-	public boolean attemptMove(){
+	/*public boolean attemptMove(){
 		System.out.println("Turn of Player " + turn + ": ");
 		
 		Scanner scan = new Scanner(System.in);
@@ -43,7 +43,7 @@ public class GameEngine {
 		} catch(Exception e) {
 			e.printStackTrace();
 			System.out.println("Malformed input");
-			return null;
+			return false;
 		}
 
 		Square source = null;
@@ -63,5 +63,5 @@ public class GameEngine {
 		if ()
 		
 		return true;
-	}
+	}*/
 }

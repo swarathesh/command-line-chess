@@ -95,7 +95,6 @@ public class Board {
 			System.out.print(i + " ");
 	}
 	
-	public Square[][] get
 
 	public Square[][] getSquares(){
 		return this.squares;
