@@ -19,6 +19,12 @@ public class Dragon extends Piece  {
 	}
 	
 	public boolean move(Board b, int fromX, int fromY, int toX, int toY){
+		if(!super.isOutofBoard(b, fromX, fromY, toX, toY))
+			return false;
+		if((Math.abs(fromX-toX)!=4 || fromY-toY!=0)&& (Math.abs(fromY-toY)!=4 || fromX-toX!=0) && (Math.abs(fromX-toX)!=4 || Math.abs(fromY-toY)!=4))
+			return false;
+		b.getSquare(toX, toY).setPiece(this);
+		b.getSquare(fromX,fromY).setPiece(null);
 		return true;
 	}
 	
