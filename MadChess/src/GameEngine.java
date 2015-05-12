@@ -13,21 +13,28 @@ public class GameEngine {
 		board = new Board();
 		squares = board.getSquares();
 	}
-	
-	public boolean isPieceMoved(){
-		return true;
-	}
-	
-	public boolean isChecked(){
-		return true;
-	}
-	
+
 	public boolean isEnded(){
-		return true;
-	}
-	
-	public void updateBoard(){
-		//if(isPieceMoved())
+		int whiteWarlordCount = 0;
+		int blackWarlordCount = 0;
+
+		for (int i = 0; i<12; i++){
+			for (int k = 0; k<16; k++){
+				if (squares[i][k].getPiece().getLevel() == 6) {
+					if(squares[i][k].getPiece().getColor() == PieceColor.WHITE) {
+						whiteWarlordCount++;
+					} else {
+						blackWarlordCount++;
+					}
+				}
+			}
+		}
+
+		if (whiteWarlordCount == 0 || blackWarlordCount == 0) {
+			return true;
+		} else {
+			return false;
+		}
 	}
 
 	public void playerTurn(){
@@ -43,6 +50,8 @@ public class GameEngine {
 		} else {
 			turn = PieceColor.WHITE;
 		}
+
+		board.printBoard();
 	}
 
 	public boolean attemptMove(){

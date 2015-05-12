@@ -18,6 +18,10 @@ public abstract class  Piece {
 	public String getName(){
 		return this.name;
 	}
+
+	public String getColor(){
+		return pColor;
+	}
 	
 	public boolean isOutofBoard(Board b,int fromX, int fromY, int toX, int toY){
 		
