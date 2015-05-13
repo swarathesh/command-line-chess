@@ -2,7 +2,7 @@ import java.util.Random;
 public class DestroyRandomPieceChest extends Chest {
 	
 	
-	public void destroy(Board b){
+	public boolean activate(Board b, int locX, int locY){
 	
 		Random rn = new Random();
 		int r1 = rn.nextInt(12);
@@ -14,5 +14,7 @@ public class DestroyRandomPieceChest extends Chest {
 		}
 		
 		b.getSquare(r1, r2).setPiece(null);
+		return true;
 	}
+	
 }

@@ -36,7 +36,7 @@ public class Square {
 		}
 		
 		else if(p == null && c != null){
-			System.out.println("\u2709\uFE0E ");
+			System.out.print("\u2709\uFE0E  ");
 		}
 	}
 	
@@ -63,7 +63,7 @@ public class Square {
 	}
 	
 	public int getColumn(){
-		return this.row;
+		return this.column;
 	}
 	
 	public void setColumn(int column){

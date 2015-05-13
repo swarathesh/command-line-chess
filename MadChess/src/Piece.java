@@ -1,11 +1,12 @@
-
+import java.util.Random;
 public abstract class  Piece {
 
 	private int level;
 	PieceColor pColor;
 	String name;
 	
-	public abstract boolean move(Board b, int fromX, int fromY, int toX, int toY);
+	public abstract  boolean move(Board b, int fromX, int fromY, int toX, int toY);
+
 	
 	public void setLevel(int level){
 		this.level = level;
@@ -21,6 +22,15 @@ public abstract class  Piece {
 
 	public PieceColor getColor(){
 		return pColor;
+	}
+	
+	public boolean isMovedOnChest(Board b, int toX, int toY){
+		if(b.getSquare(toX,toY).getChest() != null ){
+			b.getSquare(toX, toY).getChest().activate(b, toX, toY);
+			b.getSquare(toX, toY).setChest(null);
+			return true;
+		}	
+		return false;
 	}
 	
 	public boolean isOutofBoard(Board b,int fromX, int fromY, int toX, int toY){

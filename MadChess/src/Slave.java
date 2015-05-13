@@ -33,6 +33,10 @@ public class Slave extends Piece  {
 	
 	public boolean move(Board b, int fromX, int fromY, int toX, int toY){
 		
+		//if(super.isMovedOnChest(b,toX, toY)){}
+			
+	
+		
 		if(!super.isOutofBoard(b,fromX, fromY, toX, toY))
 			return false;
 		
@@ -40,22 +44,29 @@ public class Slave extends Piece  {
 			return false;
 		if(isStraightMove(fromX, fromY, toX, toY)){
 			
-			if(b.getSquare(toX, toY).getPiece()!= null)
+			if(b.getSquare(toX, toY).getPiece()!= null){
+				System.out.println("You cannot do that move");
 				return false;
+			}	
 			else if (b.getSquare(fromX+((toX-fromX)/2), fromY+((toY-fromY)/2)).getPiece()!= null ){
+				System.out.println("You cannot do that move");
 				return false;
 			} 
 			else{
 				b.getSquare(toX, toY).setPiece(this);
 				b.getSquare(fromX,fromY).setPiece(null);
+				super.isMovedOnChest(b, toX, toY);
 				return true;
 			}
 		}	
 		else{
-			if(b.getSquare(toX, toY).getPiece()== null)
+			if(b.getSquare(toX, toY).getPiece() == null){
+				System.out.println("You cannot do that move");
 				return false;
+			}
 			b.getSquare(toX, toY).setPiece(this);
 			b.getSquare(fromX,fromY).setPiece(null);
+			super.isMovedOnChest(b, toX, toY);
 			return true;	
 		}	
 	}
