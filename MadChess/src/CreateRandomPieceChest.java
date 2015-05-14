@@ -14,6 +14,7 @@ public class CreateRandomPieceChest extends Chest {
 			r2 = rn.nextInt(16);
 		}
 		b.getSquare(r1,r2).setPiece(createRandomPiece());
+		System.out.println(b.getSquare(r1, r2).getPiece().getName() + "on location " + r1 + " " + r2 + " has been created ");
 		return true;
 	}
 	

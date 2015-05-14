@@ -8,6 +8,7 @@ public class LevelUpChest extends Chest {
 		int currentPieceLevel = b.getSquare(locX, locY).getPiece().getLevel();
 		PieceColor currentPieceColor = b.getSquare(locX, locY).getPiece().getColor();
 		int newPieceLevel = currentPieceLevel++;
+		System.out.print(b.getSquare(locX, locY).getPiece().getName()  +  " has been leveled up to ");
 		b.getSquare(locX, locY).setPiece(null);
 		
 		if(newPieceLevel == 2){
@@ -30,6 +31,7 @@ public class LevelUpChest extends Chest {
 		}
 		else
 			b.getSquare(locX, locY).setPiece(new Warlord(currentPieceColor));
+		System.out.println(b.getSquare(locX, locY).getPiece().getName());
 		return true;
 	}
 

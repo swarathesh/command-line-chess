@@ -7,6 +7,8 @@ public class LevelDownChest extends Chest {
 		int currentPieceLevel = b.getSquare(locX, locY).getPiece().getLevel();
 		PieceColor currentPieceColor = b.getSquare(locX, locY).getPiece().getColor();
 		int newPieceLevel = currentPieceLevel--;
+		System.out.print(b.getSquare(locX, locY).getPiece().getName()  +  " has been leveled down to ");
+
 		b.getSquare(locX, locY).setPiece(null);
 		
 		if(newPieceLevel == 0){
@@ -29,6 +31,9 @@ public class LevelDownChest extends Chest {
 		}
 		else
 			b.getSquare(locX, locY).setPiece(new Dragon(currentPieceColor));
+		
+		System.out.println(b.getSquare(locX, locY).getPiece().getName() );
+
 		return true;
 	}
 	

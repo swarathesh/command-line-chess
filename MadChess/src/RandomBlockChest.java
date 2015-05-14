@@ -14,6 +14,8 @@ public class RandomBlockChest extends Chest {
 		Piece p = b.getSquare(locX,locY).getPiece();
 		b.getSquare(locX,locY).setPiece(null);
 		b.getSquare(r1,r2).setPiece(p);
+		System.out.println(b.getSquare(r1, r2).getPiece().getName() +  "has been teleported to " + 
+							"location " + r1 + " " + r2);
 		return true;
 		
 	}

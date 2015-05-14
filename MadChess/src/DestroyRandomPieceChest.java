@@ -13,7 +13,9 @@ public class DestroyRandomPieceChest extends Chest {
 			r2 = rn.nextInt(16);
 		}
 		
+		System.out.println(b.getSquare(r1, r2).getPiece().getName() + "on location " + r1 + " " + r2 + " has been destroyed ");
 		b.getSquare(r1, r2).setPiece(null);
+		
 		return true;
 	}
 	
