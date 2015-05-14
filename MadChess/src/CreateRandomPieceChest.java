@@ -1,7 +1,17 @@
 import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
 
 
 public class CreateRandomPieceChest extends Chest {
+	
+	private List <Observer> obj;
+	private String message;
+	private boolean changed;
+	
+	public CreateRandomPieceChest(){
+		this.obj = new ArrayList<>();
+	}
 	
 	public boolean activate(Board b ,int locX, int locY){
 		
@@ -14,7 +24,8 @@ public class CreateRandomPieceChest extends Chest {
 			r2 = rn.nextInt(16);
 		}
 		b.getSquare(r1,r2).setPiece(createRandomPiece());
-		System.out.println(b.getSquare(r1, r2).getPiece().getName() + "on location " + r1 + " " + r2 + " has been created ");
+		
+		//System.out.println(b.getSquare(r1, r2).getPiece().getName() + "on location " + r1 + " " + r2 + " has been created ");
 		return true;
 	}
 	
@@ -63,4 +74,41 @@ public class CreateRandomPieceChest extends Chest {
 		}
 
 	}
+	
+	
+	//methods to register or unregister observers
+	public  void register(Observer obj){
+		if(obj == null) throw new NullPointerException("Null Observer");
+        
+        if(!this.obj.contains(obj)) this.obj.add(obj);
+	}
+	public  void unRegister(Observer obj){
+		this.obj.remove(obj);
+	}
+	
+	// method to notify observer of change
+	public  void notifyObservers(){
+		 List<Observer> observersLocal = null;
+	        //synchronization is used to make sure any observer registered after message is received is not notified
+	        
+	            if (!changed)
+	                return;
+	            observersLocal = new ArrayList<>(this.obj);
+	            this.changed=false;
+	        
+	        for (Observer obj : observersLocal) {
+	            obj.update();
+	        }
+	 
+	}
+	
+	// method to get updates from subject
+	public  Object getUpdate(Observer obj){
+		return this.message;
+	}
+	
+	//method to post message to the topic
+    public void postMessage(String msg){
+        System.out.println("Message: "+msg);
+    }
 }

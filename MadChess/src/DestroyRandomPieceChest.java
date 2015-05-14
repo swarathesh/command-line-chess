@@ -19,4 +19,27 @@ public class DestroyRandomPieceChest extends Chest {
 		return true;
 	}
 	
+		//methods to register or unregister observers
+		public  void register(Observer obj){
+			
+		}
+		public  void unRegister(Observer obj){
+			
+		}
+		
+		// method to notify observer of change
+		public  void notifyObservers(){
+			
+		}
+		
+		// method to get updates from subject
+		public  Object getUpdate(Observer obj){
+			return null;
+		}
+		
+		//method to post message to the topic
+	    public void postMessage(String msg){
+	        System.out.println("Message: "+msg);
+	    }
+	
 }

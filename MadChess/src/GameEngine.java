@@ -6,8 +6,10 @@ public class GameEngine {
 	private PieceColor turn;
 	private Square[][] squares;
 	private Board board;
+	
 	private Random random;
 	private Scanner scan;
+	
 
 	public GameEngine(){
 		board = new Board();
@@ -118,23 +120,23 @@ public class GameEngine {
 			switch(randomChestId) {
 				case 0:
 					randomChest = new DestroyRandomPieceChest();
-					System.out.println("Chest : DestroyRandomPiece");
+					randomChest.postMessage("Chest : DestroyRandomPiece");
 					break;
 				case 1:
 					randomChest = new LevelUpChest();
-					System.out.println("Chest : LevelUp");
+					randomChest.postMessage("Chest : LevelUp");
 					break;
 				case 2:
 					randomChest = new LevelDownChest();
-					System.out.println("Chest : LevelDown");
+					randomChest.postMessage("Chest : LevelDown");
 					break;
 				case 3:
 					randomChest = new RandomBlockChest();
-					System.out.println("Chest : RandomBlockTeleport");
+					randomChest.postMessage("Chest : RandomBlockTeleport");
 					break;
 				case 4:
 					randomChest = new CreateRandomPieceChest();
-					System.out.println("Chest : CreateRandomPiece");
+					randomChest.postMessage("Chest : CreateRandomPiece");
 					break;
 			}
 
