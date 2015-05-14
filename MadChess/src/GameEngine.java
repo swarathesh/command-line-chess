@@ -39,6 +39,41 @@ public class GameEngine {
 			return false;
 		}
 	}
+	
+	public void mainMenu(){
+		
+		
+		String input = "";
+		do {
+			String s = "Welcome to Mad Chess"
+					+ "\n1.Play the game"
+					+ "\n2.See the Instructions"
+					+ "\n3.See Credits"
+					+ "\n4 Quit.\n";
+			
+			System.out.println(s);
+			System.out.print("Enter a number: ");
+			input = scan.nextLine();
+			
+			if(input.equals("1")){
+				attemptMove();
+			}
+			else if(input.equals("2")){
+				
+			}
+			else if(input.equals("3")){
+				
+			}
+			else if (input.equals("4")){
+				System.out.println("Thank you for playing.")	;
+				break;
+			}
+			else{
+				System.out.println("Try a number between 1 and 4");	
+			}
+		} while (!( input.equals("4") ));
+		
+	}
 
 	public void playerTurn(){
 
@@ -108,6 +143,7 @@ public class GameEngine {
 		int fromY = -1;
 		int toX = -1;
 		int toY = -1;
+		String coordinatesString = "";
 		
 		while(!isEnded()){
 		
@@ -118,7 +154,11 @@ public class GameEngine {
 					System.out.print("Enter the coordinates of the piece you want to move: ");
 	
 					try{
-						String coordinatesString = scan.nextLine();
+						coordinatesString = scan.nextLine();
+						if(coordinatesString.equalsIgnoreCase("exit")){
+							break;
+						}
+						
 						String[] coordinates = coordinatesString.split(" ");
 						fromX = Integer.parseInt(coordinates[0]) -1 ;
 						fromY = Integer.parseInt(coordinates[1]) -1;	
@@ -133,7 +173,11 @@ public class GameEngine {
 						System.out.println("You did not choose your own piece");
 				} while(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY ||
 						board.getSquare(fromX, fromY).getPiece() == null || board.getSquare(fromX, fromY).getPiece().pColor != PieceColor.WHITE);
-	
+				
+				if(coordinatesString.equalsIgnoreCase("exit")){
+					break;
+				}
+				
 				choosenPiece = board.getSquare(fromX, fromY).getPiece();
 				System.out.println(choosenPiece.getName() + " has been selected.");
 	
@@ -142,7 +186,7 @@ public class GameEngine {
 					System.out.print("Enter the coordinates where you want to move: ");
 					
 					try{
-						String coordinatesString = scan.nextLine();
+						coordinatesString = scan.nextLine();
 						String[] coordinates = coordinatesString.split(" ");
 						toX = Integer.parseInt(coordinates[0]) - 1 ;
 						toY = Integer.parseInt(coordinates[1]) -1;	
@@ -164,7 +208,7 @@ public class GameEngine {
 					System.out.print("Enter the coordinates of the piece you want to move: ");
 	
 					try{
-						String coordinatesString = scan.nextLine();
+						coordinatesString = scan.nextLine();
 						String[] coordinates = coordinatesString.split(" ");
 						fromX = Integer.parseInt(coordinates[0]) -1;
 						fromY = Integer.parseInt(coordinates[1]) -1;	
@@ -188,7 +232,7 @@ public class GameEngine {
 					System.out.print("Enter the coordinates where you want to move: ");
 					
 					try{
-						String coordinatesString = scan.nextLine();
+						coordinatesString = scan.nextLine();
 						String[] coordinates = coordinatesString.split(" ");
 						toX = Integer.parseInt(coordinates[0]) -1;
 						toY = Integer.parseInt(coordinates[1]) -1;	
@@ -204,5 +248,13 @@ public class GameEngine {
 					playerTurn();
 			}
 		}
+		if(isEnded()){
+			if(turn == PieceColor.WHITE)
+				System.out.println("Black has won");
+			else
+				System.out.println("White has won");
+		}
+		System.out.println("Game is over\n");
+			
 	}
 }
