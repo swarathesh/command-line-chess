@@ -3,7 +3,6 @@ public class Guard extends Piece  {
 
 	private final int level = 2;
 	private String str;
-	int value;
 	
 	public Guard(PieceColor c){
 		super();

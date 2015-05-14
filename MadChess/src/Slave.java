@@ -3,8 +3,7 @@ public class Slave extends Piece  {
 
 	private final int level = 1;
 	private String str;
-	int value;
-	
+
 	public Slave(PieceColor c){
 		super();
 		this.pColor = c;

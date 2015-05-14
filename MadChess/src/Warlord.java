@@ -3,7 +3,6 @@ public class Warlord extends Piece  {
 	
 	private final int level = 6;
 	private String str;
-	int value;
 	
 	public Warlord(PieceColor c){
 		super();

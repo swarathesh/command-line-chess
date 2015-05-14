@@ -4,7 +4,6 @@ public class Eagle extends Piece  {
 	
 	private final int level = 4;
 	private String str;
-	int value;
 	
 	public Eagle(PieceColor c){
 		super();

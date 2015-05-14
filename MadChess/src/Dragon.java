@@ -3,7 +3,6 @@ public class Dragon extends Piece  {
 
 	private final int level = 5;
 	private String str;
-	int value;
 	
 	public Dragon(PieceColor c){
 		super();

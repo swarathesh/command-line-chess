@@ -4,7 +4,6 @@ public class Cavalier extends Piece {
 	
 	private final int level = 3;
 	private String str;
-	int value;
 	
 	public Cavalier(PieceColor c){
 		super();
