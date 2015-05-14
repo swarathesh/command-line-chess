@@ -83,8 +83,8 @@ public class GameEngine {
 			turn = PieceColor.WHITE;
 		}
 		
-		//collectChests();
-		createChests(1);
+		collectChests();
+		createChests(2);
 	
 	}
 
@@ -162,15 +162,18 @@ public class GameEngine {
 						String[] coordinates = coordinatesString.split(" ");
 						fromX = Integer.parseInt(coordinates[0]) -1 ;
 						fromY = Integer.parseInt(coordinates[1]) -1;	
-					} catch(Exception e) {
-						e.printStackTrace();
-						System.out.println("Malformed input");
-					}
 					
-					if(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY )
-						System.out.println("The coordinates you entered are out of board");
-					if(board.getSquare(fromX, fromY).getPiece() == null || board.getSquare(fromX, fromY).getPiece().pColor != PieceColor.WHITE)
-						System.out.println("You did not choose your own piece");
+						if(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY )
+							System.out.println("The coordinates you entered are out of board");
+						else {
+							if(board.getSquare(fromX, fromY).getPiece() == null || board.getSquare(fromX, fromY).getPiece().pColor != PieceColor.WHITE)
+								System.out.println("You did not choose your own piece");
+						}
+					} catch(Exception e) {
+							//e.printStackTrace();
+							System.out.println("Malformed input");
+					}
+						
 				} while(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY ||
 						board.getSquare(fromX, fromY).getPiece() == null || board.getSquare(fromX, fromY).getPiece().pColor != PieceColor.WHITE);
 				
@@ -190,12 +193,13 @@ public class GameEngine {
 						String[] coordinates = coordinatesString.split(" ");
 						toX = Integer.parseInt(coordinates[0]) - 1 ;
 						toY = Integer.parseInt(coordinates[1]) -1;	
+					
+						if(toX < 0 || 11 < toX || toY < 0 || 15 < toY )
+							System.out.println("The coordinates you entered are out of board");
 					} catch(Exception e) {
-						e.printStackTrace();
+						//e.printStackTrace();
 						System.out.println("Malformed input");
 					}
-					if(toX < 0 || 11 < toX || toY < 0 || 15 < toY )
-						System.out.println("The coordinates you entered are out of board");
 				} while(toX < 0 || 11 < toX || toY < 0 || 15 < toY);
 			
 				if(choosenPiece.move(board, fromX, fromY, toX, toY))
@@ -219,8 +223,10 @@ public class GameEngine {
 					
 					if(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY )
 						System.out.println("The coordinates you entered are out of board");
-					if(board.getSquare(fromX, fromY).getPiece() == null)
-						System.out.println("You did not choose your own piece");
+					else{
+						if(board.getSquare(fromX, fromY).getPiece() == null)
+							System.out.println("You did not choose your own piece");
+					}
 				} while(fromX < 0 || 11 < fromX || fromY < 0 || 15 < fromY ||
 						board.getSquare(fromX, fromY).getPiece() == null);
 	
@@ -236,12 +242,13 @@ public class GameEngine {
 						String[] coordinates = coordinatesString.split(" ");
 						toX = Integer.parseInt(coordinates[0]) -1;
 						toY = Integer.parseInt(coordinates[1]) -1;	
+					
+						if(toX < 0 || 11 < toX || toY < 0 || 15 < toY )
+							System.out.println("The coordinates you entered are out of board");
 					} catch(Exception e) {
 						e.printStackTrace();
 						System.out.println("Malformed input");
 					}
-					if(toX < 0 || 11 < toX || toY < 0 || 15 < toY )
-						System.out.println("The coordinates you entered are out of board");
 				} while(toX < 0 || 11 < toX || toY < 0 || 15 < toY);
 				
 				if(choosenPiece.move(board, fromX, fromY, toX, toY))

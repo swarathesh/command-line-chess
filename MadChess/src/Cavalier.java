@@ -23,7 +23,7 @@ public class Cavalier extends Piece {
 		if(!super.isOutofBoard(b, fromX, fromY, toX, toY))
 			return false;
 		
-		if((Math.abs(fromX-toX)!=3 || Math.abs(fromY-toY)!= 2) && (Math.abs(fromY-toY)!=2 || Math.abs(fromX-toX)!=0)){
+		if((Math.abs(fromX-toX)!=3 || Math.abs(fromY-toY)!= 2) && (Math.abs(fromX-toX)!=2 || Math.abs(fromY-toY)!=3)){
 			System.out.println("You cannot do that move");
 			return false;
 		}
